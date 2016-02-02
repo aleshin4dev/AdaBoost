@@ -1,4 +1,6 @@
-#include "iostream"
+#include <iostream>
+#include <math.h>
+
 using namespace std;
 double* minEpsln(double, double); //finding minimal error
 double betta(double); //calculates betta
@@ -52,7 +54,7 @@ int main()
 			eps[j] = 0;
 			for (k = 0; k < 15; k++)
 			{
-				eps[j] += (Weights[k] * (abs(HaarF[j][k] - Images[k])));
+				eps[j] += (Weights[k] * (fabs(HaarF[j][k] - Images[k])));
 			}
 		}
 		/*

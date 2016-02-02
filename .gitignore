@@ -1,0 +1,18 @@
+# Auxiliary files
+*.swp
+*.o
+gmon.out
+
+# Customization
+custom.bat
+
+# Project files
+*.metadata*
+.metadata/*
+*.vcproj*
+*.ipch
+*RemoteSystemsTempFiles/*
+
+# Other generations of CMake
+/build/*
+/install/*
