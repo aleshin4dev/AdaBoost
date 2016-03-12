@@ -7,6 +7,7 @@
 export ROOT_DIR=$(pwd)
 export BUILD_DIR=${ROOT_DIR}/build
 export INSTALL_DIR=${ROOT_DIR}/install
+export OPENCV_ROOT_DIR=${ROOT_DIR}/OpenCV/share/OpenCV
 # ===============================================
 export PATH=/home/temik/University/Studier/products/cmake-3.3.0/bin:${PATH}
 
