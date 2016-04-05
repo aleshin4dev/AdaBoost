@@ -21,10 +21,14 @@ INCLUDE_DIRECTORIES(
 
 # Application source files
 SET(APP_SOURCES
-    AdaBoost.cpp
+     Main_Viola-Jones.cpp
+     HaarFunctions.cpp
+     IntegralImage.cpp
+     AdaBoost.cpp
 )
 
 SET(APP_HEADERS
+     Viola-Jones.h
 )
 
 # Libraries to be linked
