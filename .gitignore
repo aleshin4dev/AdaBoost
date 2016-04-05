@@ -16,3 +16,6 @@ custom.bat
 # Other generations of CMake
 /build/*
 /install/*
+
+# 3rd parties
+/OpenCV
