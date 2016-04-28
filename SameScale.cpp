@@ -1,5 +1,4 @@
 #include "iostream"
-
 #include "opencv/cv.hpp"
 #include "opencv/highgui.h"
 
@@ -9,7 +8,7 @@
 using namespace cv;
 using namespace std;
 
-void main()
+void AlsameScale()
 {
 	const int NumofIm = 68;
 	Mat *images = new Mat[NumofIm];
