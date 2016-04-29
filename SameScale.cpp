@@ -11,8 +11,8 @@ using namespace std;
 void AlsameScale()
 {
 	const int NumofIm = 68;
-	Mat *images = new Mat[NumofIm];
-	for (int i = 0; i < NumofIm; ++i)
+	Mat *images = new Mat[NumofIm], imageFinal;
+	for (int i = 0; i < NumofIm; i++)
 	{
 		ostringstream anOut; // выходной поток для создания строк
 		anOut << "C:\\LearningImages\\" << i + 1 << ".jpg";
@@ -27,7 +27,15 @@ void AlsameScale()
 		rows[i] = images[i].rows;
 	}
 
-	minCol = *min_element(cols, cols + 27);
-	minRow = *min_element(rows, rows + 27);
-	cout << minCol << " " << minRow;
+	minCol = *min_element(cols, cols + NumofIm);
+	minRow = *min_element(rows, rows + NumofIm);
+
+	for (int i = 0; i < NumofIm; i++)
+	{
+		ostringstream anOut; // выходной поток для создания строк
+		anOut << "C:\\LearningImages\\" << i + 1 << ".jpg";
+		imageFinal = imread(anOut.str());
+		resize(imageFinal, imageFinal, Size(minCol, minRow));
+		imwrite(anOut.str(), imageFinal);
+	}
 }
