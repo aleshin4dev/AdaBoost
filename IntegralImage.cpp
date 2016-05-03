@@ -1,7 +1,6 @@
-#include "iostream"
 #include "Viola-Jones.h"
 using namespace std;
-size_t** funcIntegralImage(size_t **A,int n, int m)
+size_t** funcIntegralImage(size_t **A, int n, int m)
 {
    int i, j, k, l;
    size_t **M;

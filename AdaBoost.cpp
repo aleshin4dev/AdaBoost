@@ -1,15 +1,16 @@
 #include "iostream"
-#include "Viola-Jones.h"
 #include "math.h"
 #include "opencv/cv.hpp"
 #include "opencv/highgui.h"
 using namespace std;
-int AdaBoost(int,int*);
+
+double AdaBoost(int,int*);
 double* minEpsln(double, double);
 double betta(double);
 
-int AdaBoost(int NoI,int *FaceOrNoFace)
+double AdaBoost(int NoI,int *FaceOrNoFace)
 {
+	int J = 9; // 9 - не окончательное число
 	double *Weights;
 	Weights = new double[NoI];
 	double sumW, eps[6], minEps, *tmpEps = new double[2], alfa[17];
@@ -17,16 +18,10 @@ int AdaBoost(int NoI,int *FaceOrNoFace)
 	Images = new int[NoI];
 	Images = FaceOrNoFace;
 	int i, j, k, m = 0, l = 0, q, boolean;
-	int 
-      HaarF[6][15] = {
-                     { 1,0,0,1,0,0,0,1,1,1,0,0,1,1,0 },
-                     { 1,0,1,0,1,1,0,0,1,0,1,0,1,1,1 },
-					 { 1,0,0,0,1,0,1,1,0,1,0,0,1,0,0 },
-					 { 1,1,1,1,1,0,0,1,1,1,0,0,0,1,0 },
-					 { 1,0,0,0,1,1,1,1,0,1,0,0,1,0,0 },
-					 { 0,1,1,0,1,0,0,1,1,1,0,0,0,1,0 }
-	                 },
-		HaarFuncStrongest[17][15];
+	int **HaarF;
+	HaarF = new int*[NoI];
+	for (int j = 0; j < NoI; j++) HaarF[j] = new int[J]; // J - число используемых простых (слабых) примитивов
+	int HaarFuncStrongest[17][15];
 	for (i = 0; i < 15; i++)
 	{
 		if (Images[i] == 0) m++;
@@ -44,6 +39,9 @@ int AdaBoost(int NoI,int *FaceOrNoFace)
 			Weights[i] = (1.0 / (2 * l));
 		}
 	}
+
+
+
 	for (i = 0; i < 17; i++)
 	{
 		sumW = 0;
@@ -81,6 +79,8 @@ int AdaBoost(int NoI,int *FaceOrNoFace)
 	return alfa[0];
 }
 
+
+
 double* minEpsln(double a, double b)
 {
 	double *eps_num = new double[2];
@@ -96,7 +96,6 @@ double* minEpsln(double a, double b)
 	}
 	return eps_num;
 }
-
 double betta(double e)
 {
 	return (e / (1 - e));
