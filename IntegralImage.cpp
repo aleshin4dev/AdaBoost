@@ -1,4 +1,4 @@
-#include "Viola-Jones.h"
+#include "stdio.h"
 using namespace std;
 size_t** funcIntegralImage(size_t **A, int n, int m)
 {

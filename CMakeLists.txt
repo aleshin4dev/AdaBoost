@@ -21,18 +21,16 @@ INCLUDE_DIRECTORIES(
 
 # Application source files
 SET(APP_SOURCES
-     Main_Viola-Jones.cpp
+     main.cpp
      IntegralImage.cpp
      AdaBoost.cpp
-     StrongClassifier.cpp
-     HaarFunc.cpp
      SameScale.cpp
+     readFileNamesInDir.cpp
 )
 
 SET(APP_HEADERS
-     Viola-Jones.h
-     HaarFunc.h
      SameScale.h
+     readFileNamesInDir.h
 )
 
 # Libraries to be linked

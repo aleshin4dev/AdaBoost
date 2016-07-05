@@ -7,7 +7,7 @@
 export ROOT_DIR=$(pwd)
 export BUILD_DIR=${ROOT_DIR}/build
 export INSTALL_DIR=${ROOT_DIR}/install
-export OPENCV_ROOT_DIR=${ROOT_DIR}/OpenCV/share/OpenCV
+export OPENCV_ROOT_DIR=/OpenCV/opencv
 # ===============================================
 
 # ===============================================
