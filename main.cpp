@@ -1,4 +1,6 @@
 #include "iostream"
+#include "vector"
+#include "string"
 #include "SameScale.h"
 #include "readFileNamesInDir.h"
 #include "math.h"
@@ -8,6 +10,5 @@ using namespace cv;
 using namespace std;
 
 int main() {
-	AlsameScale();
 	return 0;
 }

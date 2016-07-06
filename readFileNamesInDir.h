@@ -1,2 +1,4 @@
 #pragma once
-int getFileNames();
+#include <vector>
+#include <string>
+std::vector<std::string> getFileNames();
