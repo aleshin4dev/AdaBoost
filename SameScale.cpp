@@ -22,7 +22,7 @@ void AlsameScale() {
 	for (int i = 0; i < NumofImwithFace; i++) {
 		if ((namesIm[i] != ".") && (namesIm[i] != "..")) {
 			ostringstream anOut;
-			anOut << "/home/aleshin8sergey/Workspace/Coursework/AdaBoost/Images/1/" << namesIm[i];
+			anOut << "/home/aleshin8sergey/Workspace/Coursework/Images/1/" << namesIm[i];
 			images[i - point] = imread(anOut.str(), IMREAD_GRAYSCALE).clone();
 		} else point++;
 	}
@@ -30,7 +30,7 @@ void AlsameScale() {
 	for (int i = NumofImwithFace; i < namesIm.size() - 1; i++) {
 		if ((namesIm[i] != ".") && (namesIm[i] != "..")) {
 			ostringstream anOut;
-			anOut << "/home/aleshin8sergey/Workspace/Coursework/AdaBoost/Images/0/" << namesIm[i];
+			anOut << "/home/aleshin8sergey/Workspace/Coursework/Images/0/" << namesIm[i];
 			images[i - point] = imread(anOut.str(), IMREAD_GRAYSCALE).clone();
 		} else point++;
 	}
@@ -53,7 +53,7 @@ void AlsameScale() {
 
 	for (int i = 0; i < numEl; i++) {
 		ostringstream anOut;
-		anOut << "/home/aleshin8sergey/Workspace/Coursework/AdaBoost/SameScaleImages/" << i << ".png";
+		anOut << "/home/aleshin8sergey/Workspace/Coursework/SameScaleImages/" << i << ".png";
 		resize(images[i], images[i], Size(minCol, minRow));
 		imwrite(anOut.str(), images[i], compression_params);
 	}

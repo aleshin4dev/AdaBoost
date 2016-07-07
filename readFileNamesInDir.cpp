@@ -18,7 +18,7 @@ vector<string> getFileNames() {
 	*/
 	for (int i=1; i>=0; i--) {
 		ostringstream anOut;
-		anOut << "/home/aleshin8sergey/Workspace/Coursework/AdaBoost/Images/" << i << "/.";
+		anOut << "/home/aleshin8sergey/Workspace/Coursework/Images/" << i << "/.";
 		string dir = string(anOut.str());
 		DIR *dp;
 		struct dirent *dirp;
