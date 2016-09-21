@@ -26,11 +26,13 @@ SET(APP_SOURCES
      AdaBoost.cpp
      SameScale.cpp
      readFileNamesInDir.cpp
+     simpleHaar.cpp
 )
 
 SET(APP_HEADERS
      SameScale.h
      readFileNamesInDir.h
+     simpleHaar.h
 )
 
 # Libraries to be linked
