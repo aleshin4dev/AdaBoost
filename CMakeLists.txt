@@ -22,17 +22,15 @@ INCLUDE_DIRECTORIES(
 # Application source files
 SET(APP_SOURCES
      main.cpp
-     IntegralImage.cpp
-     AdaBoost.cpp
      SameScale.cpp
      readFileNamesInDir.cpp
-     simpleHaar.cpp
+     IntImg.cpp
 )
 
 SET(APP_HEADERS
      SameScale.h
      readFileNamesInDir.h
-     simpleHaar.h
+     IntImg.h
 )
 
 # Libraries to be linked

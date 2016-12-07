@@ -1,2 +1,4 @@
 #pragma once
-void AlsameScale();
+#include <vector>
+#include <string>
+std::vector<int> AlsameScale();

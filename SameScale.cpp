@@ -4,15 +4,25 @@
 
 #include <sstream>
 #include <string>
+#include <vector>
 
 #include "readFileNamesInDir.h"
 
 using namespace cv;
 using namespace std;
-
-void AlsameScale() {
+vector<int> AlsameScale() {
+	vector<int> FandNoF = vector<int>();
 	vector<string> namesIm = vector<string>();
 	namesIm = getFileNames();
+	
+	istringstream isF (namesIm[namesIm.size() - 1], istringstream::in);
+	int ao, at;
+	ao = namesIm.size() - 5;
+	isF >> at;
+	at = at - 2;
+	FandNoF.push_back(ao);
+	FandNoF.push_back(at);
+
 	istringstream iss (namesIm[namesIm.size() - 1], istringstream::in);
 	int NumofImwithFace;
 	iss >> NumofImwithFace;
@@ -57,4 +67,7 @@ void AlsameScale() {
 		resize(images[i], images[i], Size(minCol, minRow));
 		imwrite(anOut.str(), images[i], compression_params);
 	}
+	FandNoF.push_back(minRow);
+	FandNoF.push_back(minCol);
+	return FandNoF;
 }
