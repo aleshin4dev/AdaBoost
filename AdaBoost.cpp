@@ -11,7 +11,7 @@ using namespace std;
 vector<double> AdaBoost(int NoI, int l, int m){
 	vector<double> alfa = vector<double>();
 const int ValofHS = 6;
-const int Iter = 114;
+const int Iter = 100;
 	int q, boolean;
 	double *Weights, *eps, *tmpEps;
 	Weights = new double[NoI];
@@ -76,6 +76,7 @@ const int Iter = 114;
 			if(Images[j] == HaarFuncStrongest[i][j])
 				Weights[j] *= Weights[j] * betta(minEps);
 		}
+		alfa.push_back(q);
 		alfa.push_back(log(1.0 / betta(minEps)));
 	}
 	return alfa;

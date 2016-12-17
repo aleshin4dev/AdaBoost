@@ -24,8 +24,8 @@ int main() {
 		//Alfa = AdaBoost(numofAandF[0], numofAandF[1], numofAandF[0] - numofAandF[1]);
 		Alfa = AdaBoost(576, 432, (576 - 432));
 		fstream fileAlfa("/home/aleshin8sergey/Workspace/Coursework/AdaBoost/alfa.txt");
-		for(int i = 0; i < 114; i++)
-			fileAlfa << Alfa.at(i) << " ";
+		for(int i = 0; i < 199; i+=2)
+			fileAlfa << Alfa.at(i) << " " << Alfa.at(i + 1) << " ";
 		fileAlfa.close();
 	return 0;
 }
