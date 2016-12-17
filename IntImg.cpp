@@ -22,8 +22,8 @@ void integralImg(int f, int nof, int r, int c){
 	for(int i = 0; i < r + 1; i++) M[i] = new size_t[c + 1];
 
 	for(int np = 0; np < f + nof; np++){
-		for(int q = 0; q < r + 1; q++) M[0][q] = 0;
-		for(int q = 0; q < c + 1; q++) M[q][0] = 0;
+		for(int q = 0; q < c + 1; q++) M[0][q] = 0;
+		for(int q = 0; q < r + 1; q++) M[q][0] = 0;
 
 		ostringstream anOut;
 		anOut << "/home/aleshin8sergey/Workspace/Coursework/SameScaleImages/" << np << ".png";

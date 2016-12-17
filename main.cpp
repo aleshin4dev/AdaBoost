@@ -4,6 +4,7 @@
 #include "string"
 #include "SameScale.h"
 #include "IntImg.h"
+#include "AdaBoost.h"
 #include "math.h"
 
 #include <opencv2/opencv.hpp>
@@ -15,8 +16,16 @@ using namespace cv;
 using namespace std;
 
 int main() {
-	vector<int> numofAandF = vector<int>();
-	numofAandF = AlsameScale(); // [0] - количество изображений, [1] - количество с лицом, [2] - число строк, [3] - число столбцов
-	integralImg(numofAandF[1], numofAandF[0] - numofAandF[1], numofAandF[2], numofAandF[3]);
+	vector<double> Alfa = vector<double>();
+        //vector<int> numofAandF = vector<int>();
+
+/* сделано*/	//numofAandF = AlsameScale(); // [0] - количество изображений, [1] - количество с лицом, [2] - число строк, [3] - число столбцов
+/* сделано*/	//integralImg(numofAandF[1], numofAandF[0] - numofAandF[1], numofAandF[2], numofAandF[3]);
+		//Alfa = AdaBoost(numofAandF[0], numofAandF[1], numofAandF[0] - numofAandF[1]);
+		Alfa = AdaBoost(576, 432, (576 - 432));
+		fstream fileAlfa("/home/aleshin8sergey/Workspace/Coursework/AdaBoost/alfa.txt");
+		for(int i = 0; i < 114; i++)
+			fileAlfa << Alfa.at(i) << " ";
+		fileAlfa.close();
 	return 0;
 }
