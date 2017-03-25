@@ -11,7 +11,7 @@ using namespace std;
 vector<double> AdaBoost(int NoI, int l, int m){
 	vector<double> alfa = vector<double>();
 const int ValofHS = 6;
-const int Iter = 100;
+const int Iter = 114;
 	int q, boolean;
 	double *Weights, *eps, *tmpEps;
 	Weights = new double[NoI];
@@ -22,12 +22,15 @@ const int Iter = 100;
 
 	int *Images;
 	Images = new int[NoI];
-	for(int i = 0; i < l; i++) Images[i] = 1;
-	for(int i = 0; i < m; i++) Images[i + l] = 0;
+	for(int i = 0; i < l; i++)
+		Images[i] = 1;
+	for(int i = 0; i < m; i++)
+		Images[i + l] = 0;
 
 	int **HaarF;
 	HaarF = new int*[ValofHS];
-	for(int j = 0; j < ValofHS; j++) HaarF[j] = new int[NoI];
+	for(int j = 0; j < ValofHS; j++)
+		HaarF[j] = new int[NoI];
 	vector<int> HaarVote = vector<int>();
 	for(int i = 0; i < NoI; i++){
 		for(int j = 0; j < ValofHS; j++){
@@ -39,7 +42,8 @@ const int Iter = 100;
 
 	int **HaarFuncStrongest;
 	HaarFuncStrongest = new int*[Iter];
-	for(int w = 0; w < Iter; w++) HaarFuncStrongest[w] = new int[NoI];
+	for(int w = 0; w < Iter; w++)
+		HaarFuncStrongest[w] = new int[NoI];
 
 	for(int i = 0; i < NoI; i++){
 		Weights[i] = 1;

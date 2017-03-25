@@ -13,15 +13,15 @@ int main(){
 	vector<int> voteH = vector<int>();
 	double tmp, ALFA = 0, pAandH = 0;
 	fstream ha("/home/aleshin8sergey/Workspace/Coursework/AdaBoost/alfa.txt");
-	for(int i = 0; i < 200; i++){
+	for(int i = 0; i < 228; i++){
 		ha >> tmp;
 		funcH_and_alfa.push_back(tmp);
 	}
 	ha.close();
-	ofstream res("res.txt");
-for(int j = 0; j < 576; j++){
+	ofstream res("/home/aleshin8sergey/Workspace/Coursework/AdaBoost/res.txt");
+for(int j = 0; j < 1640; j++){
 	voteH = haarFunc(j, 112, 92);
-	for(int i = 0; i < 199; i+=2){
+	for(int i = 0; i < 227; i+=2){
 		ALFA += funcH_and_alfa.at(i + 1);
 		pAandH += (funcH_and_alfa.at(i + 1) * voteH.at(funcH_and_alfa.at(i)));
 	}

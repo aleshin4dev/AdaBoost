@@ -54,8 +54,10 @@ vector<int> AlsameScale() {
 		rows[i] = images[i].rows;
 	}
 
-	minCol = *min_element(cols, cols + NumofImwithFace - 2);
-	minRow = *min_element(rows, rows + NumofImwithFace - 2);
+	//minCol = *min_element(cols, cols + NumofImwithFace - 2);
+	//minRow = *min_element(rows, rows + NumofImwithFace - 2);
+	minCol = 92;
+	minRow = 112;
 
 	vector<int> compression_params;
 	compression_params.push_back(IMWRITE_PNG_COMPRESSION);

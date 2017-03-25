@@ -15,11 +15,11 @@ using namespace cv;
 
 void integralImg(int f, int nof, int r, int c){
 	Mat pic;
-	size_t **M;
+	double **M; // size_t -> double
 	int tmp;
 
-	M = new size_t*[r + 1];
-	for(int i = 0; i < r + 1; i++) M[i] = new size_t[c + 1];
+	M = new double*[r + 1];
+	for(int i = 0; i < r + 1; i++) M[i] = new double[c + 1];
 
 	for(int np = 0; np < f + nof; np++){
 		for(int q = 0; q < c + 1; q++) M[0][q] = 0;
@@ -31,7 +31,7 @@ void integralImg(int f, int nof, int r, int c){
 
 		for(int i = 1; i < r + 1; i++)
 			for(int j = 1; j < c + 1; j++)
-				M[i][j] = (int)pic.at<uchar>(i - 1, j - 1);
+				M[i][j] = (double)pic.at<uchar>(i - 1, j - 1) / 255.0; //изменение приведения типа из int в double
 
 		for(int i = r; i > 0; i--)
 		   for(int j = c; j > 0; j--)
@@ -47,11 +47,12 @@ void integralImg(int f, int nof, int r, int c){
 			for(int j = 0; j < c + 1; j++) file << M[i][j] << " ";
 			file << "\n";
 		}
-
+/*
 		if(np < f)
 			file << 1; // последний элемент файла будет являться bool, которая покажет нам наличие лица
 		else
 			file << 0;
+*/
 		file.close();
 	}
 }
