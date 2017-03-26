@@ -16,7 +16,6 @@ using namespace cv;
 void integralImg(int f, int nof, int r, int c){
 	Mat pic;
 	double **M; // size_t -> double
-	int tmp;
 
 	M = new double*[r + 1];
 	for(int i = 0; i < r + 1; i++) M[i] = new double[c + 1];
@@ -47,12 +46,6 @@ void integralImg(int f, int nof, int r, int c){
 			for(int j = 0; j < c + 1; j++) file << M[i][j] << " ";
 			file << "\n";
 		}
-/*
-		if(np < f)
-			file << 1; // последний элемент файла будет являться bool, которая покажет нам наличие лица
-		else
-			file << 0;
-*/
 		file.close();
 	}
 }

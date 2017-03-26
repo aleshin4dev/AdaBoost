@@ -23,7 +23,10 @@ vector<int> AlsameScale() {
 	FandNoF.push_back(ao);
 	FandNoF.push_back(at);
 
-	istringstream iss (namesIm[namesIm.size() - 1], istringstream::in);
+
+int minCol, minRow;
+
+/*	istringstream iss (namesIm[namesIm.size() - 1], istringstream::in);
 	int NumofImwithFace;
 	iss >> NumofImwithFace;
 	int numEl = namesIm.size() - 5;
@@ -53,13 +56,13 @@ vector<int> AlsameScale() {
 		cols[i] = images[i].cols;
 		rows[i] = images[i].rows;
 	}
-
-	//minCol = *min_element(cols, cols + NumofImwithFace - 2);
-	//minRow = *min_element(rows, rows + NumofImwithFace - 2);
+/*
+	/*minCol = *min_element(cols, cols + NumofImwithFace - 2);
+	minRow = *min_element(rows, rows + NumofImwithFace - 2);*/
 	minCol = 92;
 	minRow = 112;
 
-	vector<int> compression_params;
+	/*vector<int> compression_params;
 	compression_params.push_back(IMWRITE_PNG_COMPRESSION);
 	compression_params.push_back(9);
 
@@ -68,7 +71,7 @@ vector<int> AlsameScale() {
 		anOut << "/home/aleshin8sergey/Workspace/Coursework/SameScaleImages/" << i << ".png";
 		resize(images[i], images[i], Size(minCol, minRow));
 		imwrite(anOut.str(), images[i], compression_params);
-	}
+	}*/
 	FandNoF.push_back(minRow);
 	FandNoF.push_back(minCol);
 	return FandNoF;
