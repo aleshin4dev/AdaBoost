@@ -10,7 +10,7 @@
 using namespace std;
 vector<double> AdaBoost(int NoI, int l, int m){
 	vector<double> alfa = vector<double>();
-const int ValofHS = 6;
+const int ValofHS = 8;
 const int Iter = 100000;
 	int q, boolean;
 	double *Weights, *eps, *tmpEps;
@@ -31,12 +31,12 @@ const int Iter = 100000;
 	HaarF = new int*[ValofHS];
 	for(int j = 0; j < ValofHS; j++)
 		HaarF[j] = new int[NoI];
+
 	vector<int> HaarVote = vector<int>();
 	for(int i = 0; i < NoI; i++){
-		for(int j = 0; j < ValofHS; j++){
-			HaarVote = haarFunc(i, 112, 92);
+		HaarVote = haarFunc(i, 112, 92);
+		for(int j = 0; j < ValofHS; j++)			
 			HaarF[j][i] = HaarVote.at(j);
-		}
 		HaarVote.clear();
 	}
 
@@ -60,13 +60,16 @@ const int Iter = 100000;
 			sumW += Weights[k];
 		for(int k = 0; k < NoI; k++)
 			Weights[k] /= sumW;
+
 		for(int j = 0; j < ValofHS; j++){
 			eps[j] = 0;
 			for(int k = 0; k < NoI; k++)
 				eps[j] += (Weights[k] * (fabs(HaarF[j][k] - Images[k])));
 		}
+
 		minEps = eps[0];
 		q = 0;
+
 		for(int j = 0; j < ValofHS - 1; j++){
 			tmpEps = minEpsln(minEps, eps[j + 1]);
 			minEps = tmpEps[0];
@@ -74,12 +77,15 @@ const int Iter = 100000;
 			if(boolean == 1)
 				q = j + 1;
 		}
+
 		for(int j = 0; j < NoI; j++)
 			HaarFuncStrongest[i][j] = HaarF[q][j];
+
 		for(int j = 0; j < NoI; j++){
 			if(Images[j] == HaarFuncStrongest[i][j])
 				Weights[j] *= Weights[j] * betta(minEps);
 		}
+
 		alfa.push_back(q);
 		alfa.push_back(log(1.0 / betta(minEps)));
 	}
