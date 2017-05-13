@@ -28,7 +28,7 @@ numofAandF = AlsameScale(); // [0] - количество изображений
 	Alfa = AdaBoost(numofAandF[0], numofAandF[1], numofAandF[0] - numofAandF[1], numofAandF[2], numofAandF[3]);
 		
 	fstream fileAlfa("/home/aleshin8sergey/Workspace/Coursework/AdaBoost/alfa.txt");
-	for(int i = 0; i < 199999; i+=2)
+	for(int i = 0; i < Alfa.size() - 1; i+=2)
 		fileAlfa << Alfa.at(i) << " " << Alfa.at(i + 1) << " ";
 	fileAlfa.close();
 		
