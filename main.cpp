@@ -21,8 +21,11 @@ int main() {
 	vector<double> Alfa = vector<double>();
         vector<int> numofAandF = vector<int>();
 
-	numofAandF = AlsameScale(); // [0] - количество изображений, [1] - количество с лицом, [2] - число строк, [3] - число столбцов
-	Alfa = AdaBoost(numofAandF[0], numofAandF[1], numofAandF[0] - numofAandF[1]);
+	vector<int> HaarVote = vector<int>();
+
+numofAandF = AlsameScale(); // [0] - количество изображений, [1] - количество с лицом, [2] - число строк, [3] - число столбцов
+
+	Alfa = AdaBoost(numofAandF[0], numofAandF[1], numofAandF[0] - numofAandF[1], numofAandF[2], numofAandF[3]);
 		
 	fstream fileAlfa("/home/aleshin8sergey/Workspace/Coursework/AdaBoost/alfa.txt");
 	for(int i = 0; i < 199999; i+=2)

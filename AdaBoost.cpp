@@ -8,9 +8,9 @@
 #include "minE.h"
 #include "betta.h"
 using namespace std;
-vector<double> AdaBoost(int NoI, int l, int m){
+vector<double> AdaBoost(int NoI, int l, int m, int rs, int cs){
 	vector<double> alfa = vector<double>();
-const int ValofHS = 8;
+const int ValofHS = 56;
 const int Iter = 100000;
 	int q, boolean;
 	double *Weights, *eps, *tmpEps;
@@ -34,7 +34,7 @@ const int Iter = 100000;
 
 	vector<int> HaarVote = vector<int>();
 	for(int i = 0; i < NoI; i++){
-		HaarVote = haarFunc(i, 112, 92);
+		HaarVote = haarFunc(i, rs, cs);
 		for(int j = 0; j < ValofHS; j++)			
 			HaarF[j][i] = HaarVote.at(j);
 		HaarVote.clear();
