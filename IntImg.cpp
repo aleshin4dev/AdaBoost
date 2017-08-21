@@ -25,13 +25,16 @@ void integralImg(int f, int nof, int r, int c){
 		for(int q = 0; q < r + 1; q++) M[q][0] = 0;
 
 		ostringstream anOut;
-		anOut << "/home/aleshin8sergey/Workspace/Coursework/SameScaleImages/" << np << ".png";
+		anOut << "/SameScaleImages/" << np << ".png";
 		pic = imread(anOut.str());
 
 		for(int i = 1; i < r + 1; i++)
 			for(int j = 1; j < c + 1; j++)
-				M[i][j] = (double)pic.at<uchar>(i - 1, j - 1) / 255.0; //изменение приведения типа из int в double
+				M[i][j] = (double)pic.at<uchar>(i - 1, j - 1) / 255.0;
 
+		/*
+		непосредственное построение матрицы интегрального изображения
+		*/
 		for(int i = r; i > 0; i--)
 		   for(int j = c; j > 0; j--)
 		      for(int k = r; k >= 0; k--)
@@ -40,7 +43,7 @@ void integralImg(int f, int nof, int r, int c){
 		            	M[i][j] += M[k][l];
 
 		ostringstream textF;
-		textF << "/home/aleshin8sergey/Workspace/Coursework/IntegralImages/" << np << ".txt";
+		textF << "IntegralImages/" << np << ".txt";
 		ofstream file(textF.str().c_str());
 		for(int i = 0; i < r + 1; i++){
 			for(int j = 0; j < c + 1; j++) file << M[i][j] << " ";

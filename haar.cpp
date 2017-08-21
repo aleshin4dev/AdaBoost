@@ -19,7 +19,7 @@ vector<int> haarFunc(int numofpic, int r, int c){
 		I[i] = new double[c + 1];
 
 	ostringstream intImg;
-	intImg << "/home/aleshin8sergey/Workspace/Coursework/IntegralImages/" << numofpic << ".txt";
+	intImg << "IntegralImages/" << numofpic << ".txt";
 	fstream file(intImg.str().c_str());
 	for(int i = 0; i < r + 1; i++){
 		for(int j = 0; j < c + 1; j++)
@@ -435,9 +435,3 @@ else
 
 	return funcHaarVote;
 }
-/*
-if (Haar <= 170.69345)
-		funcHaarVote.push_back(1);
-	else
-		funcHaarVote.push_back(0);
-*/

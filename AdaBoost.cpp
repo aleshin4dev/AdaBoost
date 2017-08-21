@@ -1,7 +1,9 @@
 #include "iostream"
 #include "math.h"
+
 #include "opencv/cv.hpp"
 #include "opencv/highgui.h"
+
 #include <vector>
 #include <string>
 #include "haar.h"
@@ -12,12 +14,11 @@
 using namespace std;
 vector<double> AdaBoost(int NoI, int l, int m, int rs, int cs){
 	vector<double> alfa = vector<double>();
-vector<int> numCler = vector<int>(); // для номеров классификаторов
-vector<int>::iterator check; // для проверки наличия среди уже имеющихся номеров
-const int ValofHS = 56;
-const int Iter = 100000;
+	const int ValofHS = 56;
+	const int Iter = 100000;
 	int q, boolean;
 	double *Weights, *eps, *tmpEps;
+	
 	Weights = new double[NoI];
 	eps = new double[NoI];
 	tmpEps = new double[2];
@@ -81,15 +82,6 @@ const int Iter = 100000;
 			if(boolean == 1)
 				q = j + 1;
 		}
-
-
-/* проверяем наличие номера классификатора среди имеющихся */
-if (i != 0){
-	check = find (numCler.begin(), numCler.end(), q);
-	if (check != numCler.end())
-		break;
-}
-numCler.push_back(q);
 
 		for(int j = 0; j < NoI; j++)
 			HaarFuncStrongest[i][j] = HaarF[q][j];
